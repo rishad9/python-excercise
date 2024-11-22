@@ -1,0 +1,119 @@
+const targetElement = document.getElementById("target");
+targetElement.innerHTML = "<li>First item</li><li>Second item</li><li>Third item</li>";
+targetElement.classList.add("my-list");
+const targetElement = document.getElementById("target");
+const items = ["First item", "Second item", "Third item"];
+
+for (let i = 0; i < items.length; i++) {
+  const li = document.createElement("li");
+  li.textContent = items[i];
+  if (i === 1) {
+    li.classList.add("my-item");
+  }
+  targetElement.appendChild(li);
+}
+const names = ["John", "Paul", "Jones"];
+const targetElement = document.getElementById("target");
+
+let html = "";
+for (let i = 0; i < names.length; i++) {
+  html += `<li>${names[i]}</li>`;
+}
+targetElement.innerHTML = html;
+  const students = [
+  { name: "John", id: 2345768 },
+  { name: "Paul", id: 2134657 },
+  { name: "Jones", id: 5423679 }
+];
+const targetElement = document.getElementById("target");
+
+for (let i = 0; i < students.length; i++) {
+  const option = document.createElement("option");
+  option.value = students[i].id;
+  option.textContent = students[i].name;
+  targetElement.appendChild(option);
+}
+const picArray = [
+  // ... your image data
+];
+const targetElement = document.querySelector("section");
+
+for (let i = 0; i < picArray.length; i++) {
+  const article = document.createElement("article");
+  article.classList.add("card");
+
+  // ... create h2, figure, img, figcaption, and p elements
+  // ... set their content and attributes using textContent and src
+  // ... append these elements to the article
+
+  targetElement.appendChild(article);
+}
+const button = document.querySelector("button");
+button.addEventListener("click", () => {
+  alert("Button Clicked");
+});
+const trigger = document.getElementById("trigger");
+const target = document.getElementById("target");
+const originalSrc = target.src; // Store original image source
+
+trigger.addEventListener("mouseover", () => {
+  target.src = "picB.jpg";
+});
+
+trigger.addEventListener("mouseout", () => {
+  target.src = originalSrc;
+});
+// ... (get references to input fields, select element, and result paragraph)
+
+const calculate = () => {
+  const num1 = parseFloat(input1.value);
+  const num2 = parseFloat(input2.value);
+  const operation = select.value;
+
+  let result;
+  switch (operation) {
+    case "+":
+      result = num1 + num2;
+      break;
+    // ... cases for other operations
+  }
+
+  resultParagraph.textContent = `Result: ${result}`;
+};
+
+button.addEventListener("click", calculate);
+// ... (get references to input field and result paragraph)
+
+const calculate = () => {
+  const expression = input.value;
+  const [num1, operator, num2] = expression.split(/(\+|-|\*|\/)/);
+
+  // ... perform calculation based on operator
+  // ... update result paragraph
+};
+
+button.addEventListener("click", calculate);
+const form = document.querySelector("form");
+const firstNameInput = document.querySelector("#firstName");
+const lastNameInput = document.querySelector("#lastName");
+const result = document.getElementById("target");
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const firstName = firstNameInput.value;
+  const lastName = lastNameInput.value;
+  result.textContent = `Your name is ${firstName} ${lastName}`;
+});
+// ... (get references to articles and dialog)
+
+articles.forEach(article => {
+  article.addEventListener("click", () => {
+    const largeImageSrc = article.querySelector("img").src.replace("medium", "large");
+    dialog.querySelector("img").src = largeImageSrc;
+    dialog.showModal();
+  });
+});
+
+dialog.querySelector("span").addEventListener("click", () => {
+  dialog.close();
+});

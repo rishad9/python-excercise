@@ -1,0 +1,144 @@
+const numbers = [];
+
+for (let i = 0; i < 5; i++) {
+  numbers.push(parseInt(prompt("Enter a number:")));
+}
+
+for (let i = numbers.length - 1; i >= 0; i--) {
+  console.log(numbers[i]);
+}
+const numParticipants = parseInt(prompt("Enter the number of participants:"));
+const participants = [];
+
+for (let i = 0; i < numParticipants; i++) {
+  participants.push(prompt(`Enter the name of participant ${i + 1}:`));
+}
+
+participants.sort();
+
+document.body.innerHTML = "<ol>";
+for (let i = 0; i < numParticipants; i++) {
+  document.body.innerHTML += `<li>${participants[i]}</li>`;
+}
+document.body.innerHTML += "</ol>";
+  const dogs = [];
+
+for (let i = 0; i < 6; i++) {
+  dogs.push(prompt(`Enter the name of dog ${i + 1}:`));
+}
+
+dogs.sort().reverse();
+
+document.body.innerHTML = "<ul>";
+for (let i = 0; i < 6; i++) {
+  document.body.innerHTML += `<li>${dogs[i]}</li>`;
+}
+document.body.innerHTML += "</ul>";
+  const numbers = [];
+let num;
+
+do {
+  num = parseInt(prompt("Enter a number (0 to stop):"));
+  if (num !== 0) {
+    numbers.push(num);
+  }
+} while (num !== 0);
+
+numbers.sort((a, b) => b - a);
+console.log(numbers);
+  const numbers = [];
+let num;
+
+do {
+  num = parseInt(prompt("Enter a number:"));
+  if (numbers.includes(num)) {
+    console.log("Number already entered.");
+    break;
+  }
+  numbers.push(num);
+} while (true);
+
+numbers.sort((a, b) => a - b);
+console.log(numbers);
+  function rollDice() {
+  return Math.floor(Math.random() * 6) + 1;
+}
+
+document.body.innerHTML = "<ul>";
+let roll;
+do {
+  roll = rollDice();
+  document.body.innerHTML += `<li>${roll}</li>`;
+} while (roll !== 6);
+document.body.innerHTML += "</ul>";]
+  function rollDice(sides) {
+  return Math.floor(Math.random() * sides) + 1;
+}
+
+const maxRoll = parseInt(prompt("Enter the maximum number of sides:"));
+document.body.innerHTML = "<ul>";
+let roll;
+do {
+  roll = rollDice(maxRoll);
+  document.body.innerHTML += `<li>${roll}</li>`;
+} while (roll !== maxRoll);
+document.body.innerHTML += "</ul>";
+  function concat(arr) {
+  let result = "";
+  for (let i = 0; i < arr.length; i++) {
+    result += arr[i];
+  }
+  return result;
+}
+
+const names = ["Johnny", "DeeDee", "Joey", "Marky"];
+const concatenatedName = concat(names);
+document.body.innerHTML = concatenatedName;]
+  function even(arr) {
+  const evenNumbers = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+      evenNumbers.push(arr[i]);
+    }
+  }
+  return evenNumbers;
+}
+
+const numbers = [2, 7, 4];
+const evenNumbers = even(numbers);
+
+console.log("Original array:", numbers);
+console.log("Even numbers:", evenNumbers);
+  // ... (code for getting number of candidates, names, and number of voters)
+
+const candidates = [];
+for (let i = 0; i < numCandidates; i++) {
+  candidates.push({
+    name: prompt(`Name for candidate ${i + 1}`),
+    votes: 0,
+  });
+}
+
+for (let i = 0; i < numVoters; i++) {
+  const vote = prompt(`Voter ${i + 1}, enter your vote (candidate name):`);
+  for (let j = 0; j < numCandidates; j++) {
+    if (vote === candidates[j].name) {
+      candidates[j].votes++;
+      break;
+    }
+  }
+}
+
+// Find the winner
+let winner = candidates[0];
+for (let i = 1; i < numCandidates; i++) {
+  if (candidates[i].votes > winner.votes) {
+    winner = candidates[i];
+  }
+}
+
+console.log(`The winner is ${winner.name} with ${winner.votes} votes.`);
+console.log("Results:");
+for (let i = 0; i < numCandidates; i++) {
+  console.log(`${candidates[i].name}: ${candidates[i].votes} votes`);
+}

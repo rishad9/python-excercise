@@ -1,0 +1,104 @@
+console.log("I'm printing to console!");
+const name = prompt("Please enter your name:");
+document.body.innerHTML = `Hello, ${name}!`;
+const num1 = parseInt(prompt("Enter the first number:"));
+const num2 = parseInt(prompt("Enter the second number:"));
+const num3 = parseInt(prompt("Enter the third number:"));
+
+const sum = num1 + num2 + num3;
+const product = num1 * num2 * num3;
+const average = sum / 3;
+
+document.body.innerHTML = `Sum: ${sum}<br>Product: ${product}<br>Average: ${average}`;
+                                  const name = prompt("What is your name?");
+const houseNumber = Math.floor(Math.random() * 4) + 1;
+
+let house;
+switch (houseNumber) {
+    case 1:
+        house = "Gryffindor";
+        break;
+    case 2:
+        house = "Slytherin";
+        break;
+    case 3:
+        house = "Hufflepuff";
+        break;
+    case 4:
+        house = "Ravenclaw";
+        break;
+}
+
+document.body.innerHTML = `${name}, you are ${house}.`;
+                                  const year = parseInt(prompt("Enter a year:"));
+
+if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+    document.body.innerHTML = `${year} is a leap year.`;
+} else {
+    document.body.innerHTML = `${year} is not a leap year.`;
+  if (confirm("Should I calculate the square root?")) {
+    const number = parseFloat(prompt("Enter a number:"));
+    if (number >= 0) {
+        const squareRoot = Math.sqrt(number);
+        document.body.innerHTML = `The square root of ${number} is ${squareRoot}`;
+    } else {
+        document.body.innerHTML = "The square root of a negative number is not defined";
+    }
+} else {
+    document.body.innerHTML = "The square root is not calculated.";
+}const numDice = parseInt(prompt("Enter the number of dice:"));
+let sum = 0;
+
+for (let i = 0; i < numDice; i++) {
+    sum += Math.floor(Math.random() * 6) + 1;
+}
+
+console.log(`Sum of dice rolls: ${sum}`);
+                                  const startYear = parseInt(prompt("Enter the start year:"));
+const endYear = parseInt(prompt("Enter the end year:"));
+
+document.body.innerHTML = "<ul>";
+for (let year = startYear; year <= endYear; year++) {
+    if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+        document.body.innerHTML += `<li>${year}</li>`;
+    }
+}
+document.body.innerHTML += "</ul>";
+  const number = parseInt(prompt("Enter a number:"));
+let isPrime = true;
+
+if (number <= 1) {
+    isPrime = false;
+} else {
+    for (let i = 2; i <= Math.sqrt(number); i++) {
+        if (number % i === 0) {
+            isPrime = false;
+            break;
+        }
+    }
+}
+
+if (isPrime) {
+    document.body.innerHTML = `${number} is a prime number.`;
+} else {
+    document.body.innerHTML = `${number} is not a prime number.`;
+}
+  const numDice = parseInt(prompt("Enter the number of dice:"));
+const targetSum = parseInt(prompt("Enter the target sum:"));
+
+const trials = 10000;
+let count = 0;
+
+for (let i = 0; i < trials; i++) {
+    let sum = 0;
+    for (let j = 0; j < numDice; j++) {
+        sum += Math.floor(Math.random() * 6) + 1;
+    }
+    if (sum === targetSum) {
+        count++;
+    }
+}
+
+const probability = (count / trials) * 100;
+document.body.innerHTML = `Probability to get sum ${targetSum} with ${numDice} dice is ${probability.toFixed(2)}%`;
+}

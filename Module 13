@@ -1,0 +1,53 @@
+
+
+app = Flask(__name__)
+
+def is_prime(num):
+    if num <= 1:
+        return False
+    if num <= 3:
+        return True
+    if num % 2 == 0 or num % 3 == 0:
+        return False
+    i = 5
+    while i * i <= num:
+        if num % i == 0 or num % (i + 2) == 0:
+            return False
+        i += 6
+    return True
+
+@app.route('/prime_number/<int:number>')
+def check_prime(number):
+    is_prime_bool = is_prime(number)
+    return jsonify({'Number': number, 'isPrime': is_prime_bool})
+
+if __name__ == '__main__':
+    app.run(debug=True)
+from flask import Flask, jsonify, request
+import psycopg2  # Assuming PostgreSQL database
+
+app = Flask(__name__)
+
+# Replace with your database connection details
+conn = psycopg2.connect(
+    database="your_database",
+    user="your_user",
+    password="your_password",
+    host="your_host",
+    port="your_port"
+)
+
+@app.route('/airport/<icao_code>')
+def get_airport_info(icao_code):
+    cur = conn.cursor()
+    cur.execute("SELECT name, location FROM airports WHERE icao_code = %s", (icao_code,))
+    row = cur.fetchone()
+    cur.close()
+
+    if row:
+        return jsonify({'ICAO': icao_code, 'Name': row[0], 'Location': row[1]})
+    else:
+        return jsonify({'error': 'Airport not found'})
+
+if __name__ == '__main__':
+    app.run(debug=True)
